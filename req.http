@@ -1,0 +1,146 @@
+
+POST  http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "firstName":"yalamanchili",
+    "lastName":"jahn",
+    "email":"jahn@gmail.com",
+    "password":"jahn001",
+    "profileImageUrl":"https:example,com/avatars/author.png"
+}
+###
+
+POST  http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+    "firstName":"jahnavi",
+    "lastName":"yalamanchili",
+    "email":"jahanvi@gmail.com",
+    "password":"jahnavi",
+    "profileImageUrl":"https:''examplecom/avatars/author.png"
+}
+###
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+  "firstName": "Anurag",
+  "lastName": "Sharma",
+  "email": "anurag.user@example.com",
+  "password": "User@12345",
+  "profileImageUrl": "https://example.com/avatars/user.png"
+}
+
+### User Login
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+  "email": "anurag.user@example.com",
+  "password": "User@12345"
+ 
+}
+
+### Author Register
+POST http://localhost:4000/author-api/users
+Content-Type: application/json
+
+{
+  "firstName": "test",
+  "lastName": "Author",
+  "email": "test.author@example.com",
+  "password": "testauthor",
+  "profileImageUrl": "https://example.com/avatars/author.png"
+}
+
+### Author Login
+POST http://localhost:4000/common-api/login
+Content-Type: application/json
+
+{
+  "email": "vikas.author@example.com",
+  "password": "Author@12345"
+  
+}
+
+###
+POST  http://localhost:4000/common-api/authenticate
+Content-Type: application/json
+
+ {
+    "email":"jahnavi@gmail.com",
+    "password":"jahnavi",
+    "role":"USER"
+}
+###creating the article
+
+POST  http://localhost:4000/author-api/article
+Content-Type: application/json
+
+{
+    "author":"698978f5480be8b3fac27b3f",
+    "title":"hello world",
+    "category":"maths",
+    "content":"all maths formulas"
+}
+###
+GET   http://localhost:4000/author-api/articles/698978f5480be8b3fac27b3f
+
+### updating the article
+PUT  http://localhost:4000/author-api/article/698978f5480be8b3fac27b3f
+Content-Type: application/json
+
+{
+    "author":"698978f5480be8b3fac27b3f",
+    "title":"hello world2",
+    "category":"maths",
+    "content":" content of the hello world2 "
+}
+###
+DELETE http://localhost:4000/author-api/article/698979ffbf3eb24eb3b78f9c
+### adding comments
+PUT http://localhost:4000/user-api/comments
+Content-Type: application/json  
+
+{
+    "comment":"this is a comment"
+}
+
+###login
+POST  http://localhost:4000/user-api/login
+Content-Type: application/json
+
+ {
+    "email":"jahnavii@gmail.com",
+    "password":"jahnavi"
+}
+
+### read all the articles by user
+GET  http://localhost:4000/user-api/users/698979ffbf3eb24eb3b78f9c
+
+### add the comments
+PUT   http://localhost:4000/user-api/comments/698979ffbf3eb24eb3b78f9c
+
+###test res
+GET http://localhost:4000/test
+
+###blocked user
+PUT http://localhost:4000/admin-api/block/6989661b20ea580ff474f623
+###unblock user
+PUT http://localhost:4000/admin-api/unblock/6989661b20ea580ff474f623
+
+### change password
+PUT http://localhost:4000/common-api/change-password
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..
+
+{
+   "oldPassword": "User@12345",
+  "newPassword": "hello123"
+}
+
+
+### Logout
+GET http://localhost:4000/common-api/logout
